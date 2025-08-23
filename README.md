@@ -7,7 +7,6 @@ Website gợi ý combo du lịch với đầy đủ backend, frontend, database 
 - [Tính năng](#-tính-năng)
 - [Cài đặt](#-cài-đặt)
 - [Cấu trúc dự án](#-cấu-trúc-dự-án)
-- [API Documentation](#-api-documentation)
 - [Chức năng chính](#-chức-năng-chính)
 - [Hình ảnh demo](#-hình-ảnh-demo)
 - [License](#-license)
