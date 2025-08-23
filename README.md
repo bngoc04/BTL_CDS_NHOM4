@@ -237,7 +237,8 @@ POST   /newsletter/unsubscribe   # Hủy đăng ký
 ## 📸 Hình ảnh demo
 
 ### Trang chủ
-https://github.com/bngoc04/BTL_CDS_NHOM4/blob/main/trangchu.png
+<img width="1238" height="892" alt="trangchu" src="https://github.com/user-attachments/assets/69e6b7de-33b6-41cb-b046-2c1cd96161bc" />
+
 
 ### Tìm kiếm combo
 ![Search](https://via.placeholder.com/800x400/ff6b6b/ffffff?text=Tìm+Kiếm+Combo)
