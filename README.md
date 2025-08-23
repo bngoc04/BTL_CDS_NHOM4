@@ -236,6 +236,11 @@ POST   /newsletter/unsubscribe   # Hủy đăng ký
 
 ## 📸 Hình ảnh demo
 
+### Đăng ký/Đăng nhập
+<img width="630" height="614" alt="dangky" src="https://github.com/user-attachments/assets/cc94233d-2435-4e83-93dd-1ffcb0ddc18a" />
+<img width="1793" height="822" alt="dangnhap" src="https://github.com/user-attachments/assets/15496a6a-5269-4d67-8fee-a9fc42516106" />
+
+
 ### Trang chủ
 <img width="1238" height="892" alt="trangchu" src="https://github.com/user-attachments/assets/69e6b7de-33b6-41cb-b046-2c1cd96161bc" />
 
