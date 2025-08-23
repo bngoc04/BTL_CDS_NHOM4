@@ -1,0 +1,388 @@
+# 🚀 Travel Combo Website
+
+Website gợi ý combo du lịch với đầy đủ backend, frontend, database và các chức năng hiện đại.
+
+## 📋 Mục lục
+
+- [Tính năng](#-tính-năng)
+- [Công nghệ sử dụng](#-công-nghệ-sử-dụng)
+- [Cài đặt](#-cài-đặt)
+- [Cấu trúc dự án](#-cấu-trúc-dự-án)
+- [API Documentation](#-api-documentation)
+- [Database Schema](#-database-schema)
+- [Chức năng chính](#-chức-năng-chính)
+- [Hình ảnh demo](#-hình-ảnh-demo)
+- [Đóng góp](#-đóng-góp)
+- [License](#-license)
+
+## ✨ Tính năng
+
+### 🎯 Chức năng chính
+- **Tìm kiếm combo du lịch** với bộ lọc thông minh
+- **Đặt chỗ trực tuyến** với thanh toán an toàn
+- **Hệ thống đánh giá** và nhận xét từ khách hàng
+- **Quản lý tài khoản** người dùng
+- **Dashboard admin** với thống kê chi tiết
+- **Hệ thống thông báo** qua email/SMS
+- **Responsive design** cho mọi thiết bị
+
+### 🔍 Tìm kiếm & Lọc
+- Tìm kiếm theo điểm đến, thời gian, ngân sách
+- Lọc theo danh mục, giá cả, đánh giá
+- Sắp xếp theo nhiều tiêu chí
+- Lịch sử tìm kiếm cá nhân
+- Gợi ý combo phù hợp
+
+### 💳 Hệ thống đặt chỗ
+- Đặt chỗ trực tuyến 24/7
+- Xác nhận qua email/SMS
+- Thanh toán trực tuyến (VNPay, Momo)
+- Quản lý đặt chỗ cá nhân
+- Hủy/chỉnh sửa đặt chỗ
+
+### 👥 Quản lý người dùng
+- Đăng ký/đăng nhập tài khoản
+- Hồ sơ cá nhân chi tiết
+- Lịch sử đặt chỗ
+- Đánh giá và nhận xét
+- Quản lý thông tin liên hệ
+
+## 🛠 Công nghệ sử dụng
+
+### Backend
+- **Node.js** - Runtime environment
+- **Express.js** - Web framework
+- **MySQL** - Database
+- **JWT** - Authentication
+- **bcryptjs** - Password hashing
+- **Multer** - File upload
+- **Nodemailer** - Email service
+
+### Frontend
+- **HTML5/CSS3** - Markup & Styling
+- **JavaScript (ES6+)** - Client-side logic
+- **Font Awesome** - Icons
+- **Google Fonts** - Typography
+- **Responsive Design** - Mobile-first approach
+
+### Database
+- **MySQL** - Primary database
+- **Connection Pooling** - Performance optimization
+- **Indexes** - Query optimization
+- **Foreign Keys** - Data integrity
+
+### DevOps & Tools
+- **Git** - Version control
+- **npm** - Package management
+- **nodemon** - Development server
+- **ESLint** - Code linting
+- **Jest** - Testing framework
+
+## 🚀 Cài đặt
+
+### Yêu cầu hệ thống
+- Node.js >= 16.0.0
+- MySQL >= 8.0
+- npm >= 8.0.0
+
+### Bước 1: Clone repository
+```bash
+git clone https://github.com/your-username/travel-combo-website.git
+cd travel-combo-website
+```
+
+### Bước 2: Cài đặt dependencies
+```bash
+npm install
+```
+
+### Bước 3: Cấu hình database
+```bash
+# Tạo database
+mysql -u root -p
+CREATE DATABASE travel_combo_db;
+USE travel_combo_db;
+
+# Import schema
+mysql -u root -p travel_combo_db < database.sql
+```
+
+### Bước 4: Cấu hình environment
+```bash
+# Copy file mẫu
+cp env.example .env
+
+# Chỉnh sửa file .env với thông tin của bạn
+nano .env
+```
+
+### Bước 5: Chạy ứng dụng
+```bash
+# Development mode
+npm run dev
+
+# Production mode
+npm start
+```
+
+Truy cập: http://localhost:3001
+
+## 📁 Cấu trúc dự án
+
+```
+travel-combo-website/
+├── config/                 # Cấu hình database, middleware
+│   ├── database.js        # Database connection
+│   └── middleware.js      # Custom middleware
+├── controllers/           # Business logic
+│   ├── comboController.js # Combo management
+│   ├── bookingController.js # Booking management
+│   ├── userController.js  # User management
+│   └── contactController.js # Contact management
+├── models/               # Data models
+│   ├── Combo.js         # Combo model
+│   ├── Booking.js       # Booking model
+│   ├── User.js          # User model
+│   └── Contact.js       # Contact model
+├── routes/              # API routes
+│   └── api.js          # Main API routes
+├── middleware/          # Custom middleware
+│   ├── auth.js         # Authentication
+│   └── validate.js     # Validation
+├── validations/         # Validation schemas
+│   └── schemas.js      # Joi validation schemas
+├── public/             # Static files
+│   ├── css/           # Stylesheets
+│   ├── js/            # Client-side JavaScript
+│   └── images/        # Images
+├── uploads/           # File uploads
+├── logs/              # Application logs
+├── scripts/           # Database seeding
+├── tests/             # Test files
+├── database.sql       # Database schema
+├── travel-server.js   # Main server file
+├── travel.html        # Main HTML file
+├── travel-styles.css  # Main stylesheet
+├── travel-script.js   # Main client script
+├── package.json       # Dependencies
+├── env.example        # Environment variables template
+└── README.md          # Documentation
+```
+
+## 📚 API Documentation
+
+### Base URL
+```
+http://localhost:3001/api
+```
+
+### Authentication
+```javascript
+// Include JWT token in headers
+headers: {
+  'Authorization': 'Bearer your_jwt_token'
+}
+```
+
+### Endpoints
+
+#### Combo Management
+```http
+GET    /combos                    # Lấy danh sách combo
+GET    /combos/:id               # Lấy combo theo ID
+GET    /combos/slug/:slug        # Lấy combo theo slug
+GET    /combos/search            # Tìm kiếm combo
+GET    /combos/featured          # Combo nổi bật
+GET    /combos/destination/:dest # Combo theo điểm đến
+PATCH  /combos/:id/availability  # Cập nhật số chỗ trống
+```
+
+#### Booking Management
+```http
+POST   /bookings                 # Tạo đặt chỗ mới
+GET    /bookings/:code           # Lấy thông tin đặt chỗ
+GET    /user/bookings            # Lấy đặt chỗ của user
+PATCH  /bookings/:id/cancel      # Hủy đặt chỗ
+```
+
+#### User Management
+```http
+POST   /auth/register            # Đăng ký tài khoản
+POST   /auth/login              # Đăng nhập
+GET    /user/profile            # Lấy thông tin profile
+PUT    /user/profile            # Cập nhật profile
+PUT    /user/password           # Đổi mật khẩu
+```
+
+#### Reviews
+```http
+GET    /combos/:id/reviews       # Lấy đánh giá combo
+POST   /combos/:id/reviews       # Tạo đánh giá mới
+```
+
+#### Contact & Newsletter
+```http
+POST   /contact                  # Gửi tin nhắn liên hệ
+POST   /newsletter/subscribe     # Đăng ký nhận tin
+POST   /newsletter/unsubscribe   # Hủy đăng ký
+```
+
+### Response Format
+```javascript
+{
+  "success": true,
+  "data": {...},
+  "message": "Thông báo thành công",
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "total": 100,
+    "totalPages": 9
+  }
+}
+```
+
+## 🗄 Database Schema
+
+### Bảng chính
+- **users** - Thông tin người dùng
+- **destinations** - Điểm đến du lịch
+- **categories** - Danh mục combo
+- **combos** - Thông tin combo du lịch
+- **combo_images** - Hình ảnh combo
+- **combo_features** - Tính năng combo
+- **combo_highlights** - Điểm nổi bật
+- **combo_itinerary** - Lịch trình chi tiết
+- **bookings** - Đặt chỗ
+- **reviews** - Đánh giá
+- **contact_messages** - Tin nhắn liên hệ
+- **newsletter_subscribers** - Đăng ký nhận tin
+- **search_history** - Lịch sử tìm kiếm
+
+### Quan hệ
+- Combo → Destination (N:1)
+- Combo → Category (N:1)
+- Booking → Combo (N:1)
+- Booking → User (N:1)
+- Review → Combo (N:1)
+- Review → User (N:1)
+
+## 🎯 Chức năng chính
+
+### 1. Tìm kiếm thông minh
+- Tìm kiếm theo từ khóa
+- Lọc theo điểm đến, thời gian, ngân sách
+- Sắp xếp theo giá, đánh giá, thời gian
+- Gợi ý combo phù hợp
+
+### 2. Hệ thống đặt chỗ
+- Đặt chỗ trực tuyến
+- Xác nhận qua email
+- Thanh toán an toàn
+- Quản lý đặt chỗ
+
+### 3. Đánh giá & Nhận xét
+- Đánh giá sao (1-5)
+- Viết nhận xét chi tiết
+- Hình ảnh đánh giá
+- Xác minh đặt chỗ
+
+### 4. Quản lý người dùng
+- Đăng ký/đăng nhập
+- Hồ sơ cá nhân
+- Lịch sử đặt chỗ
+- Đánh giá cá nhân
+
+### 5. Admin Dashboard
+- Thống kê tổng quan
+- Quản lý combo
+- Quản lý đặt chỗ
+- Quản lý người dùng
+- Báo cáo doanh thu
+
+## 📸 Hình ảnh demo
+
+### Trang chủ
+![Homepage](https://via.placeholder.com/800x400/2c5aa0/ffffff?text=Trang+Chủ+Travel+Combo)
+
+### Tìm kiếm combo
+![Search](https://via.placeholder.com/800x400/ff6b6b/ffffff?text=Tìm+Kiếm+Combo)
+
+### Chi tiết combo
+![Combo Detail](https://via.placeholder.com/800x400/32cd32/ffffff?text=Chi+Tiết+Combo)
+
+### Đặt chỗ
+![Booking](https://via.placeholder.com/800x400/9370db/ffffff?text=Đặt+Chỗ)
+
+### Dashboard Admin
+![Admin Dashboard](https://via.placeholder.com/800x400/ff6347/ffffff?text=Admin+Dashboard)
+
+## 🔧 Development
+
+### Scripts có sẵn
+```bash
+npm run dev          # Chạy development server
+npm start           # Chạy production server
+npm test            # Chạy tests
+npm run lint        # Kiểm tra code style
+npm run build       # Build production
+npm run db:setup    # Setup database
+npm run db:seed     # Seed sample data
+```
+
+### Testing
+```bash
+# Chạy tất cả tests
+npm test
+
+# Chạy tests với coverage
+npm run test:coverage
+
+# Chạy tests trong watch mode
+npm run test:watch
+```
+
+### Code Style
+```bash
+# Kiểm tra code style
+npm run lint
+
+# Tự động fix code style
+npm run lint:fix
+
+# Format code
+npm run format
+```
+
+## 🤝 Đóng góp
+
+1. Fork dự án
+2. Tạo feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Tạo Pull Request
+
+### Guidelines
+- Tuân thủ code style hiện tại
+- Viết tests cho tính năng mới
+- Cập nhật documentation
+- Kiểm tra không có lỗi lint
+
+## 📄 License
+
+Dự án này được phân phối dưới giấy phép MIT. Xem file `LICENSE` để biết thêm chi tiết.
+
+## 📞 Liên hệ
+
+- **Email**: info@travelcombo.vn
+- **Website**: https://travelcombo.vn
+- **Phone**: +84 123 456 789
+- **Address**: 123 Đường ABC, Quận 1, TP.HCM
+
+## 🙏 Cảm ơn
+
+Cảm ơn bạn đã quan tâm đến dự án Travel Combo Website! 
+
+---
+
+**Made with ❤️ by Travel Combo Team**

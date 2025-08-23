@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết Tour</title>
+    <link rel="stylesheet" href="travel-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="tour-detail-container" style="max-width:1100px;margin:40px auto;padding:24px;background:#fff;border-radius:16px;box-shadow:0 2px 16px rgba(0,0,0,0.08);">
+        <div id="tour-detail-content"></div>
+    </div>
+    <script src="travel-script.js"></script>
+    <script>
+    // Lấy id tour từ query string
+    function getQueryParam(name) {
+        const url = new URL(window.location.href);
+        return url.searchParams.get(name);
+    }
+    const tourId = parseInt(getQueryParam('id'));
+    // Hiển thị chi tiết tour
+    function renderTourDetail() {
+        const combo = window.travelCombos ? window.travelCombos.find(c => c.id === tourId) : null;
+        if (!combo) {
+            document.getElementById('tour-detail-content').innerHTML = '<h2>Không tìm thấy tour!</h2>';
+            return;
+        }
+        let imagesHtml = '';
+        if (combo.images && combo.images.length > 0) {
+            imagesHtml = `<div style='display:flex;gap:12px;overflow-x:auto;margin-bottom:18px;'>${combo.images.map(img => `<img src='${img}' style='height:220px;border-radius:12px;object-fit:cover;'>`).join('')}</div>`;
+        } else {
+            imagesHtml = `<img src='${combo.image}' style='width:100%;max-height:320px;object-fit:cover;border-radius:12px;margin-bottom:18px;'>`;
+        }
+        document.getElementById('tour-detail-content').innerHTML = `
+            <h1 style='font-size:2.1rem;font-weight:700;margin-bottom:8px;'>${combo.title}</h1>
+            <div style='margin-bottom:12px;'><span style='background:#43a047;color:#fff;padding:4px 14px;border-radius:8px;font-weight:600;'>${combo.badge}</span></div>
+            ${imagesHtml}
+            <div style='font-size:1.1rem;color:#444;margin-bottom:18px;'>${combo.description}</div>
+            <div style='margin-bottom:18px;'>
+                <b>Lịch trình:</b>
+                <ul style='margin-top:8px;'>
+                    ${Object.entries(combo.itinerary).map(([day, val]) => `<li><b>${day}:</b> ${val}</li>`).join('')}
+                </ul>
+            </div>
+            <div style='margin-bottom:18px;'>
+                <b>Đặc điểm nổi bật:</b>
+                <div style='margin-top:8px;'>${combo.features.map(f => `<span style='background:#e3f2fd;color:#1976d2;padding:6px 16px;border-radius:8px;font-weight:600;margin-right:8px;display:inline-block;margin-bottom:6px;'>${f}</span>`).join('')}</div>
+            </div>
+            <div style='margin-bottom:18px;'>
+                <b>Giá tour:</b> <span style='text-decoration:line-through;color:#999;'>${combo.originalPrice}đ</span> <span style='color:#e53935;font-size:1.3rem;font-weight:700;'>${combo.price}đ</span>
+            </div>
+            <div style='margin-bottom:18px;'>
+                <label for='adult-count'><b>Người lớn (&gt;8 tuổi):</b></label>
+                <input id='adult-count' type='number' min='1' value='2' style='width:60px;margin-left:8px;'>
+                <label for='child-count' style='margin-left:18px;'><b>Trẻ em (4-8 tuổi):</b></label>
+                <input id='child-count' type='number' min='0' value='0' style='width:60px;margin-left:8px;'>
+                <label for='baby-count' style='margin-left:18px;'><b>Trẻ nhỏ (&lt;4 tuổi):</b></label>
+                <input id='baby-count' type='number' min='0' value='0' style='width:60px;margin-left:8px;'>
+            </div>
+            <div style='margin-bottom:18px;font-size:1.2rem;font-weight:600;'>
+                Tổng giá tour: <span id='tour-total-price' style='color:#e53935;'>${combo.price.replace(/\D/g,'')}</span>đ
+            </div>
+            <button id='tour-add-cart-btn' style='background:#e53935;color:#fff;font-weight:600;font-size:1.1rem;padding:12px 0;width:100%;border:none;border-radius:8px;cursor:pointer;'>
+                <i class='fas fa-shopping-cart'></i> Đặt Tour
+            </button>
+        `;
+        // Tính lại tổng giá khi thay đổi số lượng
+        function updateTotal() {
+            const adult = parseInt(document.getElementById('adult-count').value) || 0;
+            const child = parseInt(document.getElementById('child-count').value) || 0;
+            const baby = parseInt(document.getElementById('baby-count').value) || 0;
+            const price = parseInt(combo.price.replace(/\D/g, ''));
+            let total = adult * price + child * Math.round(price * 0.7);
+            document.getElementById('tour-total-price').textContent = total.toLocaleString();
+        }
+        document.getElementById('adult-count').oninput = updateTotal;
+        document.getElementById('child-count').oninput = updateTotal;
+        document.getElementById('baby-count').oninput = updateTotal;
+        document.getElementById('tour-add-cart-btn').onclick = function() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            // Lấy số lượng
+            const adult = parseInt(document.getElementById('adult-count').value) || 0;
+            const child = parseInt(document.getElementById('child-count').value) || 0;
+            const baby = parseInt(document.getElementById('baby-count').value) || 0;
+            const price = parseInt(combo.price.replace(/\D/g, ''));
+            let total = adult * price + child * Math.round(price * 0.7);
+            // Kiểm tra đã có tour này chưa
+            if (!cart.some(item => item.id === combo.id)) {
+                cart.push({
+                    id: combo.id,
+                    adult,
+                    child,
+                    baby,
+                    total
+                });
+                localStorage.setItem('cart', JSON.stringify(cart));
+                // Luôn cập nhật số lượng giỏ hàng
+                if (typeof updateCartCount === 'function') {
+                    updateCartCount();
+                } else {
+                    // Nếu chưa có hàm, tự cập nhật thủ công
+                    var cartCount = document.getElementById('cart-count');
+                    if (cartCount) cartCount.textContent = cart.length;
+                }
+                alert('Đã thêm tour vào giỏ hàng!');
+            } else {
+                alert('Tour này đã có trong giỏ hàng!');
+            }
+        };
+    }
+    // Đảm bảo travelCombos có trên window
+    window.addEventListener('DOMContentLoaded', function() {
+        window.travelCombos = typeof travelCombos !== 'undefined' ? travelCombos : [];
+        renderTourDetail();
+    });
+    </script>
+</body>
+</html>

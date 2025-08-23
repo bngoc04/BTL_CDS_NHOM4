@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Combo - Gợi Ý Combo Du Lịch</title>
+    <link rel="stylesheet" href="travel-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-plane"></i>
+                    <span>TravelCombo</span>''
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Trang Chủ</a></li>
+                    <li><a href="#combos">Combo Du Lịch</a></li>
+                    <li><a href="#destinations">Điểm Đến</a></li>
+                    <li><a href="#contact">Liên Hệ</a></li>
+                    <li id="cart-link"><a href="#" style="position:relative;"><i class="fas fa-shopping-cart"></i> Giỏ hàng <span id="cart-count" style="background:#e53935;color:#fff;border-radius:50%;padding:2px 7px;font-size:12px;position:absolute;top:-8px;right:-18px;">0</span></a></li>
+                    <li id="auth-link"><a href="auth.html">Tài khoản</a></li>
+                    <!-- auth-link sẽ được thay bằng tên tài khoản khi đã đăng nhập -->
+                </ul>
+                <div class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg-slider" style="position:absolute;inset:0;z-index:0;overflow:hidden;">
+            <div id="hero-bg-img1" class="hero-bg-img" style="position:absolute;inset:0;background: url('https://img.thuthuatphanmem.vn/uploads/2018/10/26/anh-dep-cau-rong-da-nang-viet-nam_055418962.jpg') center/cover no-repeat;transition:opacity 1s;opacity:1;"></div>
+            <div id="hero-bg-img2" class="hero-bg-img" style="position:absolute;inset:0;background: url('https://www.anhdulich.vn/storage/sliders/ha-long-bay-copy.jpg') center/cover no-repeat;transition:opacity 1s;opacity:0;"></div>
+            <div id="hero-bg-img3" class="hero-bg-img" style="position:absolute;inset:0;background: url('https://letstours.com/wp-content/uploads/2016/11/tour-ghep-tay-bac.jpg') center/cover no-repeat;transition:opacity 1s;opacity:0;"></div>
+            <div style="position:absolute;inset:0;background:rgba(80,80,180,0.55);"></div>
+        </div>
+        <div class="hero-content" style="position:relative;z-index:1;">
+            <h1>Khám Phá Thế Giới Với Combo Du Lịch Tuyệt Vời</h1>
+            <p>Tìm kiếm và đặt combo du lịch phù hợp với ngân sách và sở thích của bạn</p>
+            <div class="search-container">
+                <div class="search-form">
+                    <div class="form-group" style="grid-column: span 2;">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Bạn muốn đi đâu (ví dụ: Đà Lạt, Hạ Long...)" oninput="searchLocation()" autocomplete="off">
+                        <div id="locationList" style="display:none;"></div>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <select id="destination-select">
+                            <option value="">Chọn điểm đến</option>
+
+                            <option value="da-lat">Đà Lạt</option>
+                            <option value="ha-long">Hạ Long</option>
+                            <option value="hoi-an">Hội An</option>
+                            <option value="phu-quoc">Phú Quốc</option>
+                            <option value="sapa">Sa Pa</option>
+                            <option value="nha-trang">Nha Trang</option>
+                            <option value="da-nang">Đà Nẵng</option>
+                            <option value="ho-chi-minh">TP. Hồ Chí Minh</option>
+                            <option value="hue">Huế</option>
+                            <option value="quy-nhon">Quy Nhơn</option>
+                            <option value="phan-thiet">Phan Thiết</option>
+                            <option value="vung-tau">Vũng Tàu</option>
+                            <option value="can-tho">Cần Thơ</option>
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-calendar"></i>
+                        <select id="duration-select">
+                            <option value="">Số ngày</option>
+                            <option value="2-3">2-3 ngày</option>
+                            <option value="4-5">4-5 ngày</option>
+                            <option value="6-7">6-7 ngày</option>
+                            <option value="8+">8+ ngày</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-dollar-sign"></i>
+                        <select id="budget-select">
+                            <option value="">Ngân sách</option>
+                            <option value="under-5">Dưới 5 triệu</option>
+                            <option value="5-10">5-10 triệu</option>
+                            <option value="10-20">10-20 triệu</option>
+                            <option value="over-20">Trên 20 triệu</option>
+                        </select>
+                    </div>
+                    <button class="search-btn" onclick="searchCombos()">
+                        <i class="fas fa-search"></i>
+                        Tìm Combo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Combos -->
+    <section id="combos" class="featured-combos">
+        <div class="container">
+            <h2>Combo Du Lịch Nổi Bật</h2>
+            <div class="combo-grid" id="combo-results">
+                <!-- Combo cards will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="destinations">
+        <div class="container">
+            <h2>Điểm Đến Phổ Biến</h2>
+            <div class="destinations-grid">
+                <div class="destination-card" data-destination="da-lat">
+                    <div class="destination-image" style="background-image: url('https://campingdalat.vn/wp-content/uploads/2023/01/z4093384428351_9f2a4f05ca1059d0e37f71cb49d8beee.jpg'); background-size: cover; background-position: center; height: 180px; border-radius: 15px 15px 0 0;">
+                        <div class="destination-overlay">
+                            <h3>Đà Lạt</h3>
+                            <p>Thành phố ngàn hoa</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card" data-destination="ha-long">
+                    <div class="destination-image" style="background-image: url('https://motogo.vn/wp-content/uploads/2020/02/vinh-ha-long-7.jpg'); background-size: cover; background-position: center; height: 180px; border-radius: 15px 15px 0 0;">
+                        <div class="destination-overlay">
+                            <h3>Hạ Long</h3>
+                            <p>Kỳ quan thiên nhiên</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card" data-destination="hoi-an">
+                    <div class="destination-image" style="background-image: url('http://pvhttnt.vn/wp-content/uploads/2022/11/hoi-an-ve-dem-1.gif'); background-size: cover; background-position: center; height: 180px; border-radius: 15px 15px 0 0;">
+                        <div class="destination-overlay">
+                            <h3>Hội An</h3>
+                            <p>Phố cổ quyến rũ</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card" data-destination="phu-quoc">
+                    <div class="destination-image" style="background-image: url('https://rootytrip.com/wp-content/uploads/2024/07/phu-quoc.jpg'); background-size: cover; background-position: center; height: 180px; border-radius: 15px 15px 0 0;">
+                        <div class="destination-overlay">
+                            <h3>Phú Quốc</h3>
+                            <p>Đảo ngọc xanh</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card" data-destination="sapa">
+                    <div class="destination-image" style="background-image: url('https://saigontourism.com.vn/wp-content/uploads/2018/03/Sapa-panoramic-view.jpg'); background-size: cover; background-position: center; height: 180px; border-radius: 15px 15px 0 0;">
+                        <div class="destination-overlay">
+                            <h3>Sa Pa</h3>
+                            <p>Thị trấn trong mây</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card" data-destination="quy-nhon">
+                    <div class="destination-image" style="background-image: url('https://ik.imagekit.io/tvlk/blog/2022/06/dia-diem-du-lich-quy-nhon-2-1024x683.jpg?tr=dpr-2,w-675'); background-size: cover; background-position: center; height: 180px; border-radius: 15px 15px 0 0;">
+                        <div class="destination-overlay">
+                            <h3>Quy Nhơn</h3>
+                            <p>Biển xanh hoang sơ</p>
+                        </div>
+                    </div>
+                </div>
+                    <script>
+                    // Danh sách địa điểm gợi ý + mapping sang slug để điền vào combobox
+                    const locations = [
+                        "Hà Nội","Đà Nẵng","TP. Hồ Chí Minh","Nha Trang","Phú Quốc","Huế","Sa Pa","Vũng Tàu","Hội An","Cần Thơ","Hạ Long","Đà Lạt"
+                    ];
+                    const destMap = {
+                        "đà lạt":"da-lat","da lat":"da-lat",
+                        "đà nẵng":"da-nang","da nang":"da-nang",
+                        "hạ long":"ha-long","ha long":"ha-long",
+                        "hội an":"hoi-an","hoi an":"hoi-an",
+                        "phú quốc":"phu-quoc","phu quoc":"phu-quoc",
+                        "sa pa":"sapa","sapa":"sapa",
+                        "nha trang":"nha-trang",
+                        "vũng tàu":"vung-tau","vung tau":"vung-tau",
+                        "cần thơ":"can-tho","can tho":"can-tho",
+                        "huế":"hue","hue":"hue"
+                    };
+
+                    function renderLocations(filtered = []) {
+                        const listDiv = document.getElementById('locationList');
+                        if (!listDiv) return;
+                        if (!filtered.length) { listDiv.style.display = 'none'; listDiv.innerHTML=''; return; }
+                        listDiv.style.display = 'block';
+                        listDiv.innerHTML = '<ul>' +
+                          filtered.map(loc => `<li data-name="${loc}">${loc}</li>`).join('') +
+                          '</ul>';
+                        // Gắn sự kiện click cho từng item
+                        Array.from(listDiv.querySelectorAll('li')).forEach(li => {
+                            li.onclick = () => {
+                                const input = document.getElementById('searchInput');
+                                const select = document.getElementById('destination-select');
+                                if (input) input.value = li.dataset.name;
+                                const q = li.dataset.name.toLowerCase();
+                                for (const key in destMap) {
+                                    if (q.includes(key)) { if (select) select.value = destMap[key]; break; }
+                                }
+                                listDiv.style.display = 'none';
+                            };
+                        });
+                    }
+
+                    function searchLocation() {
+                        const input = document.getElementById('searchInput');
+                        const kw = (input?.value || '').trim().toLowerCase();
+                        if (!kw) { renderLocations([]); return; }
+                        const filtered = locations.filter(loc => loc.toLowerCase().includes(kw));
+                        renderLocations(filtered);
+                    }
+
+                    // Ẩn gợi ý khi click ra ngoài
+                    document.addEventListener('click', (e) => {
+                        const listDiv = document.getElementById('locationList');
+                        const group = e.target.closest('.form-group');
+                        if (listDiv && listDiv.style.display === 'block' && !group) {
+                            listDiv.style.display = 'none';
+                        }
+                    });
+                    </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2>Dịch Vụ Của Chúng Tôi</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://hongngocha.com/wp-content/uploads/2019/04/Icon-v%C3%A9-m%C3%A1y-bay.png" alt="Vé Máy Bay" style="width:48px;height:48px;margin-bottom:10px;">
+                    <h3>Vé Máy Bay</h3>
+                    <p>Đặt vé máy bay giá tốt nhất</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://dongahome.vn/wp-content/uploads/2020/05/Icon-kh%C3%A1ch-s%E1%BA%A1n-min.png" alt="Khách Sạn" style="width:48px;height:48px;margin-bottom:10px;">
+                    <h3>Khách Sạn</h3>
+                    <p>Lưu trú chất lượng cao</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.XiCjN-n1f2iQvQArmm4O1gHaHa?pid=Api&P=0&h=180" alt="Thuê Xe" style="width:48px;height:48px;margin-bottom:10px;">
+                    <h3>Thuê Xe</h3>
+                    <p>Phương tiện di chuyển thuận tiện</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://img.lovepik.com/free-png/20211203/lovepik-travel-guide-lady-png-image_401287433_wh1200.png" alt="Tour Guide" style="width:48px;height:48px;margin-bottom:10px;">
+                    <h3>Tour Guide</h3>
+                    <p>Hướng dẫn viên chuyên nghiệp</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Liên Hệ Với Chúng Tôi</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Điện Thoại</h4>
+                            <p>+84 384 532 704</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>Ngocnguyen@travelcombo.vn</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Địa Chỉ</h4>
+                            <p>Yên Nghĩa, TP.Hà Nội</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Họ và tên" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="Số điện thoại" required>
+                    <textarea placeholder="Tin nhắn" rows="5" required></textarea>
+                    <button type="submit">Gửi Tin Nhắn</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-plane"></i>
+                        <span>TravelCombo</span>
+                    </div>
+                    <p>Đồng hành cùng bạn trong mọi chuyến đi</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Dịch Vụ</h4>
+                    <ul>
+                        <li><a href="#">Combo Du Lịch</a></li>
+                        <li><a href="#">Vé Máy Bay</a></li>
+                        <li><a href="#">Khách Sạn</a></li>
+                        <li><a href="#">Tour Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Điểm Đến</h4>
+                    <ul>
+                        <li><a href="#">Đà Lạt</a></li>
+                        <li><a href="#">Hạ Long</a></li>
+                        <li><a href="#">Hội An</a></li>
+                        <li><a href="#">Phú Quốc</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Liên Hệ</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +84 384 532 704</li>
+                        <li><i class="fas fa-envelope"></i> Ngocnguyen@travelcombo.vn</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Yên Nghĩa, TP.Hà Nội</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TravelCombo. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Combo Detail Modal -->
+    <div id="combo-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-body">
+                <!-- Modal content will be populated by JavaScript -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="booking-modal" class="modal">
+        <div class="modal-content" style="max-width:400px;">
+            <span class="close" id="booking-close">&times;</span>
+            <h2 style="margin-bottom:1rem;">Thông tin khách hàng</h2>
+            <form id="booking-form">
+                <div style="margin-bottom:1rem;">
+                    <label>Họ và tên</label>
+                    <input type="text" id="customer-name" required style="width:100%;padding:8px;margin-top:4px;">
+                </div>
+                <div style="margin-bottom:1rem;">
+                    <label>Số điện thoại</label>
+                    <input type="tel" id="customer-phone" required style="width:100%;padding:8px;margin-top:4px;">
+                </div>
+                <div style="margin-bottom:1rem;">
+                    <label>Email</label>
+                    <input type="email" id="customer-email" required style="width:100%;padding:8px;margin-top:4px;">
+                </div>
+                <div style="margin-bottom:1rem;">
+                    <label>Ghi chú</label>
+                    <textarea id="customer-note" rows="3" style="width:100%;padding:8px;margin-top:4px;"></textarea>
+                </div>
+                <button type="submit" style="width:100%;background:#1976d2;color:#fff;padding:10px 0;border:none;border-radius:6px;font-size:1.1rem;">Gửi đặt lịch</button>
+            </form>
+            <div id="booking-success" style="display:none;margin-top:1rem;color:green;font-weight:600;text-align:center;">Đặt lịch thành công! Chúng tôi sẽ liên hệ bạn sớm.</div>
+        </div>
+    </div>
+
+    <!-- Modal Giỏ hàng -->
+    <div id="cart-modal" class="modal" style="display:none;">
+        <div class="modal-content" style="max-width:500px;">
+            <span class="close" id="cart-close">&times;</span>
+            <h2 style="margin-bottom:1rem;">Giỏ hàng của bạn</h2>
+            <div id="cart-user-info" style="background:#f8f8f8;padding:12px 18px;border-radius:10px;margin-bottom:16px;display:flex;flex-direction:column;gap:4px;">
+                <span style="font-weight:600;color:#e53935;"><i class="fas fa-user"></i> <span id="cart-user-name">Tên khách hàng</span> <span id="cart-user-phone" style="color:#333;font-weight:400;font-size:0.95rem;"></span></span>
+                <span style="color:#333;cursor:pointer;" id="cart-user-address-row"><i class="fas fa-map-marker-alt"></i> <span id="cart-user-address">Địa chỉ</span></span>
+            </div>
+            <div id="cart-address-form" style="display:none;background:#fff;padding:16px 18px;border-radius:10px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                <div style="font-weight:600;color:#e53935;margin-bottom:8px;">Địa chỉ mới</div>
+                <input id="address-name" type="text" placeholder="Họ và tên" style="width:100%;margin-bottom:8px;padding:8px;border-radius:6px;border:1px solid #eee;">
+                <input id="address-phone" type="text" placeholder="Số điện thoại" style="width:100%;margin-bottom:8px;padding:8px;border-radius:6px;border:1px solid #eee;">
+                <input id="address-detail" type="text" placeholder="Tỉnh/Thành phố, Quận/Huyện, Phường/Xã" style="width:100%;margin-bottom:8px;padding:8px;border-radius:6px;border:1px solid #eee;">
+                <input id="address-extra" type="text" placeholder="Tên đường, Tòa nhà, Số nhà" style="width:100%;margin-bottom:8px;padding:8px;border-radius:6px;border:1px solid #eee;">
+                <div style="margin-bottom:8px;">
+                    <span style="font-weight:500;">Loại địa chỉ:</span>
+                    <button id="address-type-office" type="button" style="margin-left:8px;padding:4px 12px;border-radius:6px;border:1px solid #eee;background:#f5f5f5;">Văn Phòng</button>
+                    <button id="address-type-home" type="button" style="margin-left:8px;padding:4px 12px;border-radius:6px;border:1px solid #eee;background:#f5f5f5;">Nhà Riêng</button>
+                </div>
+                <button id="address-save-btn" style="width:100%;background:#e53935;color:#fff;font-weight:600;font-size:1.1rem;padding:10px 0;border:none;border-radius:8px;cursor:pointer;">Hoàn thành</button>
+            </div>
+            <div id="cart-items"></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1.5rem;">
+                <div id="cart-total" style="font-size:1.1rem;font-weight:600;color:#e53935;"></div>
+                <button id="cart-checkout" style="background:#ff5722;color:#fff;font-weight:600;font-size:1.1rem;padding:10px 32px;border:none;border-radius:8px;cursor:pointer;">Thanh toán (<span id="cart-checkout-count">0</span>)</button>
+            </div>
+            <div id="cart-payment-method" style="display:none;background:#fff;padding:16px 18px;border-radius:10px;margin-top:16px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                <div style="font-weight:600;color:#333;margin-bottom:8px;">Phương thức thanh toán</div>
+                <div style="display:flex;flex-direction:column;gap:10px;">
+                    <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                        <input type="radio" name="payment-method" value="cod" checked>
+                        <span><i class="fas fa-money-bill-wave"></i> Thanh toán tiền mặt</span>
+                    </label>
+                    <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                        <input type="radio" name="payment-method" value="bank">
+                        <span><i class="fas fa-university"></i> Chuyển khoản ngân hàng</span>
+                    </label>
+                    <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                        <input type="radio" name="payment-method" value="e-wallet">
+                        <span><i class="fas fa-wallet"></i> Ví điện tử</span>
+                    </label>
+                </div>
+                <button id="cart-payment-confirm" style="width:100%;background:#ff5722;color:#fff;font-weight:600;font-size:1.1rem;padding:10px 0;margin-top:18px;border:none;border-radius:8px;cursor:pointer;">Xác nhận thanh toán</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="travel-script.js"></script>
+    <script>
+    // Hero background slider
+    const heroImages = [
+        document.getElementById('hero-bg-img1'),
+        document.getElementById('hero-bg-img2'),
+        document.getElementById('hero-bg-img3')
+    ];
+    let heroIdx = 0;
+    setInterval(() => {
+        heroImages.forEach((img, i) => img.style.opacity = (i === heroIdx ? '1' : '0'));
+        heroIdx = (heroIdx + 1) % heroImages.length;
+    }, 4000);
+
+    // Auth check: nếu chưa đăng nhập thì chuyển về auth.html (chỉ khi không phải trang auth.html và không phải travel.html)
+    function updateAuthMenu() {
+        let loggedIn = localStorage.getItem('loggedInUser');
+        const authLink = document.getElementById('auth-link');
+        const path = window.location.pathname;
+        if (!authLink) return;
+        if (loggedIn) {
+            const user = JSON.parse(localStorage.getItem('user_' + loggedIn));
+            authLink.innerHTML = `
+                <div style="position:relative;display:inline-block;">
+                    <span id="user-menu-toggle" style="color:#1976d2;font-weight:600;cursor:pointer;">${user ? user.username : loggedIn} <i class='fas fa-caret-down'></i></span>
+                    <div id="user-menu" style="display:none;position:absolute;right:0;top:120%;background:#fff;border:1px solid #eee;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);min-width:140px;z-index:1000;">
+                        <a href="#" id="logout-btn" style="display:block;padding:10px 18px;color:#d32f2f;text-decoration:none;">Đăng xuất</a>
+                    </div>
+                </div>
+            `;
+            setTimeout(() => {
+                const toggle = document.getElementById('user-menu-toggle');
+                const menu = document.getElementById('user-menu');
+                if (toggle && menu) {
+                    toggle.onclick = function(e) {
+                        e.stopPropagation();
+                        menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+                    };
+                    document.body.addEventListener('click', function() { menu.style.display = 'none'; });
+                }
+                const logoutBtn = document.getElementById('logout-btn');
+                if (logoutBtn) {
+                    logoutBtn.onclick = function(e) {
+                        e.preventDefault();
+                        localStorage.removeItem('loggedInUser');
+                        window.location.reload();
+                    };
+                }
+            }, 0);
+        } else {
+            // Chỉ chuyển hướng nếu không phải trang auth.html và không phải travel.html
+            if (!path.endsWith('auth.html') && !path.endsWith('travel.html')) {
+                window.location.href = 'auth.html';
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        updateAuthMenu();
+    // Đảm bảo cập nhật lại khi quay lại trang hoặc reload
+    window.addEventListener('storage', updateAuthMenu);
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) updateAuthMenu();
+    });
+
+        // Booking modal logic
+        document.body.addEventListener('click', function(e) {
+            if (e.target.classList.contains('book-btn')) {
+                document.getElementById('booking-modal').style.display = 'block';
+            }
+        });
+        document.getElementById('booking_close').onclick = function() {
+            document.getElementById('booking-modal').style.display = 'none';
+            document.getElementById('booking-form').style.display = 'block';
+            document.getElementById('booking-success').style.display = 'none';
+        };
+        document.getElementById('booking-form').onsubmit = function(ev) {
+            ev.preventDefault();
+            document.getElementById('booking-form').style.display = 'none';
+            document.getElementById('booking-success').style.display = 'block';
+        };
+        // Close modal when click outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('booking-modal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                document.getElementById('booking-form').style.display = 'block';
+                document.getElementById('booking-success').style.display = 'none';
+            }
+        };
+
+        // Cart modal logic
+        document.getElementById('cart-link').onclick = function(e) {
+            e.preventDefault();
+            document.getElementById('cart-modal').style.display = 'block';
+        };
+        document.getElementById('cart-close').onclick = function() {
+            document.getElementById('cart-modal').style.display = 'none';
+        };
+        document.getElementById('cart-checkout').onclick = function() {
+            alert('Chức năng đặt hàng đang được phát triển!');
+        };
+
+        // Cart address form logic
+        const addressForm = document.getElementById('cart-address-form');
+        const userInfo = document.getElementById('cart-user-info');
+        const userAddressRow = document.getElementById('cart-user-address-row');
+        const userName = document.getElementById('cart-user-name');
+        const userPhone = document.getElementById('cart-user-phone');
+        const userAddress = document.getElementById('cart-user-address');
+
+        userAddressRow.onclick = function() {
+            addressForm.style.display = 'block';
+            userInfo.style.display = 'none';
+        };
+
+        document.getElementById('address-save-btn').onclick = function() {
+            const name = document.getElementById('address-name').value.trim();
+            const phone = document.getElementById('address-phone').value.trim();
+            const detail = document.getElementById('address-detail').value.trim();
+            const extra = document.getElementById('address-extra').value.trim();
+            let type = 'Nhà riêng';
+
+            if (document.getElementById('address-type-office').classList.contains('active')) {
+                type = 'Văn phòng';
+            }
+
+            if (name && phone && detail && extra) {
+                userName.innerText = name + ' (' + type + ')';
+                userPhone.innerText = phone;
+                userAddress.innerText = detail + ', ' + extra;
+                addressForm.style.display = 'none';
+                userInfo.style.display = 'flex';
+            } else {
+                alert('Vui lòng điền đầy đủ thông tin địa chỉ.');
+            }
+        };
+
+        document.getElementById('address-type-office').onclick = function() {
+            this.classList.add('active');
+            document.getElementById('address-type-home').classList.remove('active');
+        };
+        document.getElementById('address-type-home').onclick = function() {
+            this.classList.add('active');
+            document.getElementById('address-type-office').classList.remove('active');
+        };
+    });
+    </script>
+
+</body>
+</html>

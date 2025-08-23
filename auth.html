@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập / Đăng ký - TravelCombo</title>
+    <link rel="stylesheet" href="travel-styles.css">
+    <style>
+        body { background: #f5f7fa; font-family: 'Poppins', sans-serif; }
+        .auth-container { max-width: 400px; margin: 60px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 16px rgba(0,0,0,0.08); padding: 2.5rem 2rem; }
+        .auth-tabs { display: flex; gap: 1rem; margin-bottom: 2rem; }
+        .auth-tab { flex: 1; text-align: center; padding: 10px 0; border-radius: 8px; cursor: pointer; font-weight: 600; background: #f0f4f8; color: #1976d2; }
+        .auth-tab.active { background: #1976d2; color: #fff; }
+        .auth-form { display: none; }
+        .auth-form.active { display: block; }
+        .auth-form input { width: 100%; padding: 10px; margin-bottom: 1.2rem; border: 1px solid #ddd; border-radius: 6px; }
+        .auth-form button { width: 100%; background: #1976d2; color: #fff; padding: 12px 0; border: none; border-radius: 6px; font-size: 1.1rem; font-weight: 600; }
+        .auth-message { color: green; text-align: center; margin-bottom: 1rem; display: none; }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-tabs">
+            <div class="auth-tab active" id="login-tab">Đăng nhập</div>
+            <div class="auth-tab" id="register-tab">Đăng ký</div>
+        </div>
+        <div class="auth-message" id="auth-message"></div>
+        <form class="auth-form active" id="login-form">
+            <input type="text" id="login-username" placeholder="Tên đăng nhập" required>
+            <input type="password" id="login-password" placeholder="Mật khẩu" required>
+            <button type="submit">Đăng nhập</button>
+        </form>
+        <form class="auth-form" id="register-form">
+            <input type="text" id="register-username" placeholder="Tên đăng nhập" required>
+            <input type="email" id="register-email" placeholder="Email" required>
+            <input type="password" id="register-password" placeholder="Mật khẩu" required>
+            <button type="submit">Đăng ký</button>
+        </form>
+    </div>
+    <script>
+    // Tab switching
+    document.getElementById('login-tab').onclick = function() {
+        this.classList.add('active');
+        document.getElementById('register-tab').classList.remove('active');
+        document.getElementById('login-form').classList.add('active');
+        document.getElementById('register-form').classList.remove('active');
+        document.getElementById('auth-message').style.display = 'none';
+    };
+    document.getElementById('register-tab').onclick = function() {
+        this.classList.add('active');
+        document.getElementById('login-tab').classList.remove('active');
+        document.getElementById('register-form').classList.add('active');
+        document.getElementById('login-form').classList.remove('active');
+        document.getElementById('auth-message').style.display = 'none';
+    };
+    // Fake auth (localStorage)
+    document.getElementById('register-form').onsubmit = function(e) {
+        e.preventDefault();
+        const username = document.getElementById('register-username').value;
+        const email = document.getElementById('register-email').value;
+        const password = document.getElementById('register-password').value;
+        if(localStorage.getItem('user_' + username)) {
+            showMessage('Tên đăng nhập đã tồn tại!', 'red');
+            return;
+        }
+        localStorage.setItem('user_' + username, JSON.stringify({username, email, password}));
+        showMessage('Đăng ký thành công! Vui lòng đăng nhập.', 'green');
+        setTimeout(() => {
+            document.getElementById('login-tab').click();
+        }, 1200);
+    };
+    document.getElementById('login-form').onsubmit = function(e) {
+        e.preventDefault();
+        const username = document.getElementById('login-username').value;
+        const password = document.getElementById('login-password').value;
+        const user = localStorage.getItem('user_' + username);
+        if(!user) {
+            showMessage('Tài khoản không tồn tại!', 'red');
+            return;
+        }
+        const userObj = JSON.parse(user);
+        if(userObj.password !== password) {
+            showMessage('Mật khẩu không đúng!', 'red');
+            return;
+        }
+        showMessage('Đăng nhập thành công! Đang chuyển hướng...', 'green');
+        localStorage.setItem('loggedInUser', username);
+        setTimeout(() => {
+            window.location.href = 'travel.html';
+        }, 1200);
+    };
+    function showMessage(msg, color) {
+        const el = document.getElementById('auth-message');
+        el.textContent = msg;
+        el.style.color = color;
+        el.style.display = 'block';
+    }
+    </script>
+</body>
+</html>
