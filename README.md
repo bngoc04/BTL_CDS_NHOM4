@@ -241,23 +241,30 @@ POST   /newsletter/unsubscribe   # Hủy đăng ký
 <img width="1793" height="822" alt="dangnhap" src="https://github.com/user-attachments/assets/15496a6a-5269-4d67-8fee-a9fc42516106" />
 
 
-### Trang chủ
+### Trang chủ/ Tìm kiếm Combo
 <img width="1238" height="892" alt="trangchu" src="https://github.com/user-attachments/assets/69e6b7de-33b6-41cb-b046-2c1cd96161bc" />
+<img width="1258" height="711" alt="image" src="https://github.com/user-attachments/assets/a7f6a5f5-63a4-41cd-b9cf-52ca9c6acc23" />
 
+### Các combo nổi bật
+<img width="1165" height="765" alt="Screenshot 2025-08-23 200705" src="https://github.com/user-attachments/assets/89f300cf-0eba-47f5-8697-a8f102c629e2" />
 
-### Tìm kiếm combo
-![Search](https://via.placeholder.com/800x400/ff6b6b/ffffff?text=Tìm+Kiếm+Combo)
+### Xem chi tiết tour
+<img width="669" height="643" alt="Screenshot 2025-08-23 200717" src="https://github.com/user-attachments/assets/a2d25be0-e0cd-4521-93bc-3c7970e240f4" />
+<img width="715" height="719" alt="Screenshot 2025-08-23 200730" src="https://github.com/user-attachments/assets/2c143f66-f855-4d09-84d5-f2041c26f889" />
+<img width="733" height="719" alt="Screenshot 2025-08-23 200738" src="https://github.com/user-attachments/assets/a397e65c-49d1-4dd4-aebf-0f50be9a1867" />
 
-### Chi tiết combo
-![Combo Detail](https://via.placeholder.com/800x400/32cd32/ffffff?text=Chi+Tiết+Combo)
+### Đặt Tour
+<img width="998" height="829" alt="Screenshot 2025-08-23 200810" src="https://github.com/user-attachments/assets/3676cb0c-ba2b-4457-a63a-96e22cc42ac1" />
 
-### Đặt chỗ
-![Booking](https://via.placeholder.com/800x400/9370db/ffffff?text=Đặt+Chỗ)
+### Thông tin người đặt tour
+<img width="523" height="560" alt="Screenshot 2025-08-23 200825" src="https://github.com/user-attachments/assets/f0ec6f6c-c3a8-4f36-a134-0e835b4c9c3d" />
 
-### Dashboard Admin
-![Admin Dashboard](https://via.placeholder.com/800x400/ff6347/ffffff?text=Admin+Dashboard)
+### Đặt tour
+<img width="475" height="391" alt="Screenshot 2025-08-23 200837" src="https://github.com/user-attachments/assets/938ca59d-f940-4552-b400-059c2d79d057" />
 
-## 🔧 Development
+### Phần liên hệ
+<img width="1154" height="570" alt="Screenshot 2025-08-23 200850" src="https://github.com/user-attachments/assets/07272c53-5c95-480c-9e78-447655fc7ebb" />
+<img width="1457" height="288" alt="Screenshot 2025-08-23 200902" src="https://github.com/user-attachments/assets/c48aa804-072d-4b09-af04-d192db6688c4" />
 
 
 ## 📞 Liên hệ
@@ -274,3 +281,4 @@ Cảm ơn bạn đã quan tâm đến dự án Travel Combo Website!
 ---
 
 **Made with ❤️ by Travel Combo Team**
+
