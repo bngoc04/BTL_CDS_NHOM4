@@ -274,11 +274,13 @@ POST   /newsletter/unsubscribe   # Hủy đăng ký
 - **Phone**: +84 384 532 704
 - **Address**: Yên nghĩa, TP.Hà Nội
 
+### Phát triển bởi
+-**Nhóm 4 - Lớp CNTT 17-02**
+-**Môn: Công nghệ thông tin trong chuyển đổi số**
+-**Khoa Công nghệ thông tin - Trường Đại học Đại Nam**
+
 ## 🙏 Cảm ơn
 
-Cảm ơn bạn đã quan tâm đến dự án Travel Combo Website! 
+Cảm ơn thầy cô và các bạnbạn đã quan tâm đến dự án Travel Combo Website! 
 
 ---
-
-**Made with ❤️ by Travel Combo Team**
-
