@@ -22,12 +22,10 @@ Website gợi ý combo du lịch với đầy đủ backend, frontend, database 
 - **Đặt chỗ trực tuyến** với thanh toán an toàn
 - **Hệ thống đánh giá** và nhận xét từ khách hàng
 - **Quản lý tài khoản** người dùng
-- **Dashboard admin** với thống kê chi tiết
-- **Hệ thống thông báo** qua email/SMS
-- **Responsive design** cho mọi thiết bị
+₫- **Responsive design** cho mọi thiết bị
 
 ### 🔍 Tìm kiếm & Lọc
-- Tìm kiếm theo điểm đến, thời gian, ngân sách
+- Tìm kiếm theo điểm đến, ngày,ngân sách
 - Lọc theo danh mục, giá cả, đánh giá
 - Sắp xếp theo nhiều tiêu chí
 - Lịch sử tìm kiếm cá nhân
@@ -35,17 +33,7 @@ Website gợi ý combo du lịch với đầy đủ backend, frontend, database 
 
 ### 💳 Hệ thống đặt chỗ
 - Đặt chỗ trực tuyến 24/7
-- Xác nhận qua email/SMS
 - Thanh toán trực tuyến (VNPay, Momo)
-- Quản lý đặt chỗ cá nhân
-- Hủy/chỉnh sửa đặt chỗ
-
-### 👥 Quản lý người dùng
-- Đăng ký/đăng nhập tài khoản
-- Hồ sơ cá nhân chi tiết
-- Lịch sử đặt chỗ
-- Đánh giá và nhận xét
-- Quản lý thông tin liên hệ
 
 ## 🛠 Công nghệ sử dụng
 
@@ -62,21 +50,13 @@ Website gợi ý combo du lịch với đầy đủ backend, frontend, database 
 - **HTML5/CSS3** - Markup & Styling
 - **JavaScript (ES6+)** - Client-side logic
 - **Font Awesome** - Icons
-- **Google Fonts** - Typography
-- **Responsive Design** - Mobile-first approach
-
+- 
 ### Database
 - **MySQL** - Primary database
 - **Connection Pooling** - Performance optimization
 - **Indexes** - Query optimization
 - **Foreign Keys** - Data integrity
 
-### DevOps & Tools
-- **Git** - Version control
-- **npm** - Package management
-- **nodemon** - Development server
-- **ESLint** - Code linting
-- **Jest** - Testing framework
 
 ## 🚀 Cài đặt
 
@@ -117,13 +97,7 @@ nano .env
 ```
 
 ### Bước 5: Chạy ứng dụng
-```bash
-# Development mode
-npm run dev
-
-# Production mode
-npm start
-```
+node travel-server.js
 
 Truy cập: http://localhost:3001
 
@@ -169,41 +143,16 @@ travel-combo-website/
 └── README.md          # Documentation
 ```
 
-## 📚 API Documentation
-
-### Base URL
-```
-http://localhost:3001/api
-```
-
-### Authentication
-```javascript
-// Include JWT token in headers
-headers: {
-  'Authorization': 'Bearer your_jwt_token'
-}
-```
-
 ### Endpoints
 
 #### Combo Management
 ```http
 GET    /combos                    # Lấy danh sách combo
-GET    /combos/:id               # Lấy combo theo ID
-GET    /combos/slug/:slug        # Lấy combo theo slug
 GET    /combos/search            # Tìm kiếm combo
 GET    /combos/featured          # Combo nổi bật
 GET    /combos/destination/:dest # Combo theo điểm đến
-PATCH  /combos/:id/availability  # Cập nhật số chỗ trống
 ```
 
-#### Booking Management
-```http
-POST   /bookings                 # Tạo đặt chỗ mới
-GET    /bookings/:code           # Lấy thông tin đặt chỗ
-GET    /user/bookings            # Lấy đặt chỗ của user
-PATCH  /bookings/:id/cancel      # Hủy đặt chỗ
-```
 
 #### User Management
 ```http
@@ -256,8 +205,6 @@ POST   /newsletter/unsubscribe   # Hủy đăng ký
 - **bookings** - Đặt chỗ
 - **reviews** - Đánh giá
 - **contact_messages** - Tin nhắn liên hệ
-- **newsletter_subscribers** - Đăng ký nhận tin
-- **search_history** - Lịch sử tìm kiếm
 
 ### Quan hệ
 - Combo → Destination (N:1)
@@ -277,9 +224,7 @@ POST   /newsletter/unsubscribe   # Hủy đăng ký
 
 ### 2. Hệ thống đặt chỗ
 - Đặt chỗ trực tuyến
-- Xác nhận qua email
 - Thanh toán an toàn
-- Quản lý đặt chỗ
 
 ### 3. Đánh giá & Nhận xét
 - Đánh giá sao (1-5)
@@ -287,18 +232,7 @@ POST   /newsletter/unsubscribe   # Hủy đăng ký
 - Hình ảnh đánh giá
 - Xác minh đặt chỗ
 
-### 4. Quản lý người dùng
-- Đăng ký/đăng nhập
-- Hồ sơ cá nhân
-- Lịch sử đặt chỗ
-- Đánh giá cá nhân
 
-### 5. Admin Dashboard
-- Thống kê tổng quan
-- Quản lý combo
-- Quản lý đặt chỗ
-- Quản lý người dùng
-- Báo cáo doanh thu
 
 ## 📸 Hình ảnh demo
 
@@ -319,65 +253,13 @@ POST   /newsletter/unsubscribe   # Hủy đăng ký
 
 ## 🔧 Development
 
-### Scripts có sẵn
-```bash
-npm run dev          # Chạy development server
-npm start           # Chạy production server
-npm test            # Chạy tests
-npm run lint        # Kiểm tra code style
-npm run build       # Build production
-npm run db:setup    # Setup database
-npm run db:seed     # Seed sample data
-```
-
-### Testing
-```bash
-# Chạy tất cả tests
-npm test
-
-# Chạy tests với coverage
-npm run test:coverage
-
-# Chạy tests trong watch mode
-npm run test:watch
-```
-
-### Code Style
-```bash
-# Kiểm tra code style
-npm run lint
-
-# Tự động fix code style
-npm run lint:fix
-
-# Format code
-npm run format
-```
-
-## 🤝 Đóng góp
-
-1. Fork dự án
-2. Tạo feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Tạo Pull Request
-
-### Guidelines
-- Tuân thủ code style hiện tại
-- Viết tests cho tính năng mới
-- Cập nhật documentation
-- Kiểm tra không có lỗi lint
-
-## 📄 License
-
-Dự án này được phân phối dưới giấy phép MIT. Xem file `LICENSE` để biết thêm chi tiết.
 
 ## 📞 Liên hệ
 
-- **Email**: info@travelcombo.vn
+- **Email**: nguyenngoc@travelcombo.vn
 - **Website**: https://travelcombo.vn
-- **Phone**: +84 123 456 789
-- **Address**: 123 Đường ABC, Quận 1, TP.HCM
+- **Phone**: +84 384 532 704
+- **Address**: Yên nghĩa, TP.Hà Nội
 
 ## 🙏 Cảm ơn
 
