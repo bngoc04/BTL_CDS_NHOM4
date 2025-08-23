@@ -5,14 +5,11 @@ Website gợi ý combo du lịch với đầy đủ backend, frontend, database 
 ## 📋 Mục lục
 
 - [Tính năng](#-tính-năng)
-- [Công nghệ sử dụng](#-công-nghệ-sử-dụng)
 - [Cài đặt](#-cài-đặt)
 - [Cấu trúc dự án](#-cấu-trúc-dự-án)
 - [API Documentation](#-api-documentation)
-- [Database Schema](#-database-schema)
 - [Chức năng chính](#-chức-năng-chính)
 - [Hình ảnh demo](#-hình-ảnh-demo)
-- [Đóng góp](#-đóng-góp)
 - [License](#-license)
 
 ## ✨ Tính năng
