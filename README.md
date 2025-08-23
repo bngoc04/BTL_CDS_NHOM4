@@ -237,7 +237,8 @@ POST   /newsletter/unsubscribe   # Hủy đăng ký
 ## 📸 Hình ảnh demo
 
 ### Trang chủ
-![Homepage](https://github.com/bngoc04/BTL_CDS_NHOM4/blob/main/dangky.png/800x400/2c5aa0/ffffff?text=Trang+Chủ+Travel+Combo)
+<img width="1175" height="253" alt="image" src="https://github.com/user-attachments/assets/d86152ec-d5ee-4206-8f82-5aa7b6d721e9" />
+
 
 ### Tìm kiếm combo
 ![Search](https://via.placeholder.com/800x400/ff6b6b/ffffff?text=Tìm+Kiếm+Combo)
