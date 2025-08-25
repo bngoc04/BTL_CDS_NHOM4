@@ -1,7 +1,8 @@
 # 🚀 Travel Combo Website
-# ỨNG DỤNG NHẬN DIỆN CỬ CHỈ TAY HỖ TRỢ GIAO TIẾP CHO NGƯỜI KHUYẾT TẬT
+# GỢI Ý COMBO DU LỊCH
 
-![Đại Nam University](<img width="300" height="168" alt="image" src="https://github.com/user-attachments/assets/1baa2ca4-c069-4239-9963-f969e558173e" />
+![Đại Nam University](<img width="523" height="338" alt="image" src="https://github.com/user-attachments/assets/e350e5db-d8da-456a-be3c-d0bed795754f" />
+
 )
 
 
