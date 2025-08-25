@@ -1,4 +1,9 @@
 # 🚀 Travel Combo Website
+# ỨNG DỤNG NHẬN DIỆN CỬ CHỈ TAY HỖ TRỢ GIAO TIẾP CHO NGƯỜI KHUYẾT TẬT
+
+![Đại Nam University](<img width="300" height="168" alt="image" src="https://github.com/user-attachments/assets/1baa2ca4-c069-4239-9963-f969e558173e" />
+)
+
 
 Website gợi ý combo du lịch với đầy đủ backend, frontend, database và các chức năng hiện đại.
 
