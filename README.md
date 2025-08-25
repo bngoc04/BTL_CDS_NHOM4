@@ -1,9 +1,6 @@
 # 🚀 Travel Combo Website
 # GỢI Ý COMBO DU LỊCH
-
-![Đại Nam University](<img width="523" height="338" alt="image" src="https://github.com/user-attachments/assets/e350e5db-d8da-456a-be3c-d0bed795754f" />
-
-)
+(<img width="400" height="195" alt="image" src="https://github.com/user-attachments/assets/92ebd634-5283-48d3-ba0e-a283958fde07" />)
 
 
 Website gợi ý combo du lịch với đầy đủ backend, frontend, database và các chức năng hiện đại.
