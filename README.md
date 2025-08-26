@@ -6,6 +6,19 @@
 <img width="300" height="250" alt="image" src="https://github.com/user-attachments/assets/e6521fcc-765c-4cbe-994f-2a0b0a7d4403" />
 
 
+<div align="center">
+
+# 🚀 TRANG WEB GỢI Ý COMBO DU LỊCH  
+
+<p>
+  <img src="https://raw.githubusercontent.com/username/repo/main/iot.png" alt="IoT Lab" width="200" style="margin-right: 40px;"/>
+  <img src="https://raw.githubusercontent.com/username/repo/main/dainam.png" alt="Đại Nam University" width="200"/>
+</p>
+
+Website combo du lịch với đầy đủ backend, frontend, cơ sở dữ liệu và các chức năng hiện đại.  
+
+</div>
+
 Website combo du lịch với đầy đủ backend, frontend, cơ sở dữ liệu và các chức năng hiện đại.  
 
 </div>
