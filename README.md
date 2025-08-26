@@ -4,8 +4,8 @@
 # 🚀 TRANG WEB GỢI Ý COMBO DU LỊCH  
 
 <p>
+    <img src="2̣(2).png" alt="Đại Nam University" width="200"/>
   <img src="https://raw.githubusercontent.com/username/repo/main/iot.png" alt="IoT Lab" width="200" style="margin-right: 40px;"/>
-  <img src="https://raw.githubusercontent.com/username/repo/main/dainam.png" alt="Đại Nam University" width="200"/>
 </p>
 
 Website combo du lịch với đầy đủ backend, frontend, cơ sở dữ liệu và các chức năng hiện đại.  
