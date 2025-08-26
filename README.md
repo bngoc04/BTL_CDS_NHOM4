@@ -1,6 +1,6 @@
 # 🚀 Travel Combo Website
 # GỢI Ý COMBO DU LỊCH
-(<img width="400" height="195" alt="image" src="https://github.com/user-attachments/assets/92ebd634-5283-48d3-ba0e-a283958fde07" />)
+<img width="400" height="195" alt="image" src="https://github.com/user-attachments/assets/92ebd634-5283-48d3-ba0e-a283958fde07" />
 
 
 Website gợi ý combo du lịch với đầy đủ backend, frontend, database và các chức năng hiện đại.
