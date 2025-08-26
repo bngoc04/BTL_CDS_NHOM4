@@ -5,7 +5,7 @@
 
 <p>
 <img width="400" height="200" alt="2(2)" src="https://github.com/user-attachments/assets/27aeaa55-7374-4dfb-ac95-a0327157673f" alt="Đại Nam University" width="200" style="margin-right: 40px;"/>
-  <img src="https://raw.githubusercontent.com/username/repo/main/dainam.png" alt="Đại Nam University" width="200"/>
+  <img width="225" height="225" alt="images" src="https://github.com/user-attachments/assets/3f0d1851-bbdf-487e-acd7-8924f7847a23" alt="IoT " width="200"/>
 </p>
 Website combo du lịch với đầy đủ backend, frontend, cơ sở dữ liệu và các chức năng hiện đại.  
 
