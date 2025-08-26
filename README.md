@@ -4,8 +4,7 @@
 # 🚀 TRANG WEB GỢI Ý COMBO DU LỊCH  
 
 <p>
-    <https://github.com/bngoc04/BTL_CDS_NHOM4/blob/bbdf7ccbdd757df04466baad741edaea74ff0d7d/2(2).png" alt="Đại Nam University" width="200"/>
-  <img src="https://raw.githubusercontent.com/username/repo/main/iot.png" alt="IoT Lab" width="200" style="margin-right: 40px;"/>
+<img src="[https://raw.githubusercontent.com/username/repo/main/iot.png"](https://raw.githubusercontent.com/<username>/<repo>/<branch>/2(2).png)" alt="IoT Lab" width="200" style="margin-right: 40px;"/>
 </p>
 
 Website combo du lịch với đầy đủ backend, frontend, cơ sở dữ liệu và các chức năng hiện đại.  
