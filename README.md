@@ -4,8 +4,8 @@
 # 🚀 TRANG WEB GỢI Ý COMBO DU LỊCH  
 
 <p>
-<img width="200" height="500" alt="Logo_DAI_NAM" src="https://github.com/user-attachments/assets/325a3d42-c1e4-4a1c-8700-13eb652a4dde" alt="Đại Nam University" width="200" style="margin-right: 40px;"/>
-<img width="300" height="400" alt="images" src="https://github.com/user-attachments/assets/3f0d1851-bbdf-487e-acd7-8924f7847a23" alt="IoT " width="200"/>
+<img width="761" height="276" alt="image" src="https://github.com/user-attachments/assets/fe046d68-950d-4552-902e-92a602237b15" />
+
 </p>
 Website combo du lịch với đầy đủ backend, frontend, cơ sở dữ liệu và các chức năng hiện đại.  
 
