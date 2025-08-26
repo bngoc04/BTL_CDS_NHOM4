@@ -1,9 +1,7 @@
 
 <div align="center">
 
-# 🚀 Trang web kết hợp du lịch
-
-## GỢI Ý COMBO DU LỊCH  
+# 🚀 Trang web GỢI Ý COMBO DU LỊCH
 <img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/92ebd634-5283-48d3-ba0e-a283958fde07" />"
 <img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/a95df49d-7234-4958-bf55-7993358cd08f" />
 
