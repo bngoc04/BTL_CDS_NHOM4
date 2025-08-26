@@ -3,7 +3,7 @@
 
 # 🚀 TRANG WEB GỢI Ý COMBO DU LỊCH
 <img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/92ebd634-5283-48d3-ba0e-a283958fde07" />
-<img width="225" height="225" alt="image" src="https://github.com/user-attachments/assets/e6521fcc-765c-4cbe-994f-2a0b0a7d4403" />
+<img width="400" height="225" alt="image" src="https://github.com/user-attachments/assets/e6521fcc-765c-4cbe-994f-2a0b0a7d4403" />
 
 
 Website combo du lịch với đầy đủ backend, frontend, cơ sở dữ liệu và các chức năng hiện đại.  
