@@ -6,7 +6,7 @@
 <img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/a95df49d-7234-4958-bf55-7993358cd08f" />
 
 
-Website tip tip combo du lịch với đầy đủ backend, frontend, cơ sở dữ liệu và các chức năng hiện đại.  
+Website combo du lịch với đầy đủ backend, frontend, cơ sở dữ liệu và các chức năng hiện đại.  
 
 </div>
 
