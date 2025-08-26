@@ -4,7 +4,7 @@
 # 🚀 TRANG WEB GỢI Ý COMBO DU LỊCH  
 
 <p>
-<img width="1322" height="1200" alt="2(2) (1)" src="https://github.com/user-attachments/assets/27aeaa55-7374-4dfb-ac95-a0327157673f/>
+<img width="1322" height="1200" alt="2(2)" src="https://github.com/user-attachments/assets/27aeaa55-7374-4dfb-ac95-a0327157673f/>
 " alt="IoT Lab" width="200" style="margin-right: 40px;"/>
   <img src="https://raw.githubusercontent.com/username/repo/main/dainam.png" alt="Đại Nam University" width="200"/>
 </p>
