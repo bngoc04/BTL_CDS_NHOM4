@@ -4,16 +4,11 @@
 # 🚀 Trang web kết hợp du lịch
 
 ## GỢI Ý COMBO DU LỊCH  
-
-<img src="<img width="400" height="195" alt="image" src="https://github.com/user-attachments/assets/92ebd634-5283-48d3-ba0e-a283958fde07" />"/>  
+<img width="400" height="195" alt="image" src="https://github.com/user-attachments/assets/92ebd634-5283-48d3-ba0e-a283958fde07" />"
 
 Website tip tip combo du lịch với đầy đủ backend, frontend, cơ sở dữ liệu và các chức năng hiện đại.  
 
 </div>
-
-
-Website gợi ý combo du lịch với đầy đủ backend, frontend, database và các chức năng hiện đại.
-
 ## 📋 Mục lục
 
 - [Tính năng](#-tính-năng)
