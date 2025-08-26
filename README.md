@@ -1,6 +1,3 @@
-# 🚀 Travel Combo Website
-# GỢI Ý COMBO DU LỊCH
-<img width="400" height="195" alt="image" src="https://github.com/user-attachments/assets/92ebd634-5283-48d3-ba0e-a283958fde07" />
 
 <div align="center">
 
@@ -8,7 +5,7 @@
 
 ## GỢI Ý COMBO DU LỊCH  
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_%C4%90%E1%BA%A1i_Nam.png" alt="Đại Nam University" width="200"/>  
+<img src="<img width="400" height="195" alt="image" src="https://github.com/user-attachments/assets/92ebd634-5283-48d3-ba0e-a283958fde07" />"/>  
 
 Website tip tip combo du lịch với đầy đủ backend, frontend, cơ sở dữ liệu và các chức năng hiện đại.  
 
